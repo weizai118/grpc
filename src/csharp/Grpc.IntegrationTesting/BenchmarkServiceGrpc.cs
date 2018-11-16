@@ -19,7 +19,7 @@
 //
 // An integration test service that covers all the method signature permutations
 // of unary/streaming requests/responses.
-#pragma warning disable 1591
+#pragma warning disable 0414, 1591
 #region Designer generated code
 
 using grpc = global::Grpc.Core;
@@ -29,43 +29,43 @@ namespace Grpc.Testing {
   {
     static readonly string __ServiceName = "grpc.testing.BenchmarkService";
 
-    static readonly grpc::Marshaller<global::Grpc.Testing.SimpleRequest> __Marshaller_SimpleRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.SimpleRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Grpc.Testing.SimpleResponse> __Marshaller_SimpleResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.SimpleResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Grpc.Testing.SimpleRequest> __Marshaller_grpc_testing_SimpleRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.SimpleRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Grpc.Testing.SimpleResponse> __Marshaller_grpc_testing_SimpleResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.SimpleResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Grpc.Testing.SimpleRequest, global::Grpc.Testing.SimpleResponse> __Method_UnaryCall = new grpc::Method<global::Grpc.Testing.SimpleRequest, global::Grpc.Testing.SimpleResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "UnaryCall",
-        __Marshaller_SimpleRequest,
-        __Marshaller_SimpleResponse);
+        __Marshaller_grpc_testing_SimpleRequest,
+        __Marshaller_grpc_testing_SimpleResponse);
 
     static readonly grpc::Method<global::Grpc.Testing.SimpleRequest, global::Grpc.Testing.SimpleResponse> __Method_StreamingCall = new grpc::Method<global::Grpc.Testing.SimpleRequest, global::Grpc.Testing.SimpleResponse>(
         grpc::MethodType.DuplexStreaming,
         __ServiceName,
         "StreamingCall",
-        __Marshaller_SimpleRequest,
-        __Marshaller_SimpleResponse);
+        __Marshaller_grpc_testing_SimpleRequest,
+        __Marshaller_grpc_testing_SimpleResponse);
 
     static readonly grpc::Method<global::Grpc.Testing.SimpleRequest, global::Grpc.Testing.SimpleResponse> __Method_StreamingFromClient = new grpc::Method<global::Grpc.Testing.SimpleRequest, global::Grpc.Testing.SimpleResponse>(
         grpc::MethodType.ClientStreaming,
         __ServiceName,
         "StreamingFromClient",
-        __Marshaller_SimpleRequest,
-        __Marshaller_SimpleResponse);
+        __Marshaller_grpc_testing_SimpleRequest,
+        __Marshaller_grpc_testing_SimpleResponse);
 
     static readonly grpc::Method<global::Grpc.Testing.SimpleRequest, global::Grpc.Testing.SimpleResponse> __Method_StreamingFromServer = new grpc::Method<global::Grpc.Testing.SimpleRequest, global::Grpc.Testing.SimpleResponse>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "StreamingFromServer",
-        __Marshaller_SimpleRequest,
-        __Marshaller_SimpleResponse);
+        __Marshaller_grpc_testing_SimpleRequest,
+        __Marshaller_grpc_testing_SimpleResponse);
 
     static readonly grpc::Method<global::Grpc.Testing.SimpleRequest, global::Grpc.Testing.SimpleResponse> __Method_StreamingBothWays = new grpc::Method<global::Grpc.Testing.SimpleRequest, global::Grpc.Testing.SimpleResponse>(
         grpc::MethodType.DuplexStreaming,
         __ServiceName,
         "StreamingBothWays",
-        __Marshaller_SimpleRequest,
-        __Marshaller_SimpleResponse);
+        __Marshaller_grpc_testing_SimpleRequest,
+        __Marshaller_grpc_testing_SimpleResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -322,6 +322,19 @@ namespace Grpc.Testing {
           .AddMethod(__Method_StreamingFromClient, serviceImpl.StreamingFromClient)
           .AddMethod(__Method_StreamingFromServer, serviceImpl.StreamingFromServer)
           .AddMethod(__Method_StreamingBothWays, serviceImpl.StreamingBothWays).Build();
+    }
+
+    /// <summary>Register service method implementations with a service binder. Useful when customizing the service binding logic.
+    /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
+    /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+    public static void BindService(grpc::ServiceBinderBase serviceBinder, BenchmarkServiceBase serviceImpl)
+    {
+      serviceBinder.AddMethod(__Method_UnaryCall, serviceImpl.UnaryCall);
+      serviceBinder.AddMethod(__Method_StreamingCall, serviceImpl.StreamingCall);
+      serviceBinder.AddMethod(__Method_StreamingFromClient, serviceImpl.StreamingFromClient);
+      serviceBinder.AddMethod(__Method_StreamingFromServer, serviceImpl.StreamingFromServer);
+      serviceBinder.AddMethod(__Method_StreamingBothWays, serviceImpl.StreamingBothWays);
     }
 
   }

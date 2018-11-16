@@ -19,7 +19,7 @@
 //
 // An integration test service that covers all the method signature permutations
 // of unary/streaming requests/responses.
-#pragma warning disable 1591
+#pragma warning disable 0414, 1591
 #region Designer generated code
 
 using grpc = global::Grpc.Core;
@@ -29,41 +29,41 @@ namespace Grpc.Testing {
   {
     static readonly string __ServiceName = "grpc.testing.WorkerService";
 
-    static readonly grpc::Marshaller<global::Grpc.Testing.ServerArgs> __Marshaller_ServerArgs = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.ServerArgs.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Grpc.Testing.ServerStatus> __Marshaller_ServerStatus = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.ServerStatus.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Grpc.Testing.ClientArgs> __Marshaller_ClientArgs = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.ClientArgs.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Grpc.Testing.ClientStatus> __Marshaller_ClientStatus = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.ClientStatus.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Grpc.Testing.CoreRequest> __Marshaller_CoreRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.CoreRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Grpc.Testing.CoreResponse> __Marshaller_CoreResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.CoreResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Grpc.Testing.Void> __Marshaller_Void = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.Void.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Grpc.Testing.ServerArgs> __Marshaller_grpc_testing_ServerArgs = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.ServerArgs.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Grpc.Testing.ServerStatus> __Marshaller_grpc_testing_ServerStatus = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.ServerStatus.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Grpc.Testing.ClientArgs> __Marshaller_grpc_testing_ClientArgs = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.ClientArgs.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Grpc.Testing.ClientStatus> __Marshaller_grpc_testing_ClientStatus = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.ClientStatus.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Grpc.Testing.CoreRequest> __Marshaller_grpc_testing_CoreRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.CoreRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Grpc.Testing.CoreResponse> __Marshaller_grpc_testing_CoreResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.CoreResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Grpc.Testing.Void> __Marshaller_grpc_testing_Void = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Grpc.Testing.Void.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Grpc.Testing.ServerArgs, global::Grpc.Testing.ServerStatus> __Method_RunServer = new grpc::Method<global::Grpc.Testing.ServerArgs, global::Grpc.Testing.ServerStatus>(
         grpc::MethodType.DuplexStreaming,
         __ServiceName,
         "RunServer",
-        __Marshaller_ServerArgs,
-        __Marshaller_ServerStatus);
+        __Marshaller_grpc_testing_ServerArgs,
+        __Marshaller_grpc_testing_ServerStatus);
 
     static readonly grpc::Method<global::Grpc.Testing.ClientArgs, global::Grpc.Testing.ClientStatus> __Method_RunClient = new grpc::Method<global::Grpc.Testing.ClientArgs, global::Grpc.Testing.ClientStatus>(
         grpc::MethodType.DuplexStreaming,
         __ServiceName,
         "RunClient",
-        __Marshaller_ClientArgs,
-        __Marshaller_ClientStatus);
+        __Marshaller_grpc_testing_ClientArgs,
+        __Marshaller_grpc_testing_ClientStatus);
 
     static readonly grpc::Method<global::Grpc.Testing.CoreRequest, global::Grpc.Testing.CoreResponse> __Method_CoreCount = new grpc::Method<global::Grpc.Testing.CoreRequest, global::Grpc.Testing.CoreResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "CoreCount",
-        __Marshaller_CoreRequest,
-        __Marshaller_CoreResponse);
+        __Marshaller_grpc_testing_CoreRequest,
+        __Marshaller_grpc_testing_CoreResponse);
 
     static readonly grpc::Method<global::Grpc.Testing.Void, global::Grpc.Testing.Void> __Method_QuitWorker = new grpc::Method<global::Grpc.Testing.Void, global::Grpc.Testing.Void>(
         grpc::MethodType.Unary,
         __ServiceName,
         "QuitWorker",
-        __Marshaller_Void,
-        __Marshaller_Void);
+        __Marshaller_grpc_testing_Void,
+        __Marshaller_grpc_testing_Void);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -319,6 +319,18 @@ namespace Grpc.Testing {
           .AddMethod(__Method_RunClient, serviceImpl.RunClient)
           .AddMethod(__Method_CoreCount, serviceImpl.CoreCount)
           .AddMethod(__Method_QuitWorker, serviceImpl.QuitWorker).Build();
+    }
+
+    /// <summary>Register service method implementations with a service binder. Useful when customizing the service binding logic.
+    /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
+    /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+    public static void BindService(grpc::ServiceBinderBase serviceBinder, WorkerServiceBase serviceImpl)
+    {
+      serviceBinder.AddMethod(__Method_RunServer, serviceImpl.RunServer);
+      serviceBinder.AddMethod(__Method_RunClient, serviceImpl.RunClient);
+      serviceBinder.AddMethod(__Method_CoreCount, serviceImpl.CoreCount);
+      serviceBinder.AddMethod(__Method_QuitWorker, serviceImpl.QuitWorker);
     }
 
   }
